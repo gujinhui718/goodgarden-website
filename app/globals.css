@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --ink: #183019; --cream: #fbfaf6; }
+* { border-color: rgba(24, 48, 25, .1); }
+html { scroll-behavior: smooth; background: var(--cream); }
+body { margin: 0; background: var(--cream); color: var(--ink); font-family: Arial, "PingFang SC", "Microsoft YaHei", sans-serif; -webkit-font-smoothing: antialiased; }
+::selection { background: #d5b456; color: #183019; }
+
+@layer components {
+  .display { font-family: Georgia, "Noto Serif SC", serif; font-weight: 400; letter-spacing: -0.045em; }
+  .eyebrow { font-size: .68rem; line-height: 1.1; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+  .nav-link { position: relative; font-size: .72rem; font-weight: 700; letter-spacing: .055em; transition: color .2s ease; }
+  .nav-link::after { content: ""; position: absolute; right: 0; bottom: -8px; left: 0; height: 1px; transform: scaleX(0); transform-origin: right; background: #ad8730; transition: transform .25s ease; }
+  .nav-link:hover::after { transform: scaleX(1); transform-origin: left; }
+  .button { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; background: #3f6132; padding: .85rem 1.3rem; font-size: .72rem; font-weight: 700; letter-spacing: .075em; color: white; transition: transform .2s ease, background .2s ease; }
+  .button:hover { transform: translateY(-1px); background: #183019; }
+  .button-small { padding: .65rem 1rem; font-size: .65rem; }
+  .button-light { background: white; color: #183019; }
+  .button-light:hover { background: #f5f8f1; }
+  .footer-label { font-size: .66rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #e9cd7a; }
+  .footer-link { transition: color .2s ease; }
+  .footer-link:hover { color: white; }
+  .field-label { display: grid; gap: .5rem; color: rgba(24, 48, 25, .72); font-size: .72rem; font-weight: 700; letter-spacing: .04em; }
+  .field { width: 100%; border: 1px solid rgba(24,48,25,.13); border-radius: .75rem; background: #fbfaf6; padding: .8rem .9rem; color: #183019; font-size: .9rem; font-weight: 400; outline: none; transition: border .2s ease, box-shadow .2s ease; }
+  .field:focus { border-color: #537743; box-shadow: 0 0 0 3px rgba(83,119,67,.12); }
+}
+
+@media (max-width: 640px) { .display { letter-spacing: -0.035em; } }
