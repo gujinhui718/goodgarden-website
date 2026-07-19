@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: { default: "GOOD GARDEN FOOD", template: "%s | GOOD GARDEN FOOD" },
   description: siteConfig.description,
-  keywords: ["fresh fruit", "fruit supply chain", "global fruit supplier", "international produce"],
+  keywords: ["premium bananas", "banana brand", "banana importer", "banana exporter", "global banana sourcing", "Central Asia fruit market"],
   openGraph: { type: "website", siteName: siteConfig.name, title: siteConfig.name, description: siteConfig.description },
   robots: { index: true, follow: true },
 };

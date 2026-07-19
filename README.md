@@ -1,29 +1,51 @@
-# GOOD GARDEN FOOD
+# GOOD GARDEN
 
-A bilingual, responsive corporate site for an international fresh-fruit supply chain. Built with Next.js App Router, React, TypeScript and Tailwind CSS.
+Multilingual corporate website for GOOD GARDEN, an international premium banana brand. The site presents selected origins in Ecuador, the Philippines, Cambodia, Vietnam, Laos and Guangxi, China, together with the company’s current Central Asian market focus and future international expansion.
 
-## Run locally
+## Local development on Windows
 
-```bash
-npm install
-copy .env.example .env.local
-npm run dev
+PowerShell may block `npm.ps1`. Use the Windows command wrapper:
+
+```powershell
+cd "C:\Users\admin\Documents\网站建设"
+npm.cmd install
+npm.cmd run dev
 ```
 
-Open `http://localhost:3000`. `/` routes visitors to `/en`; English and Chinese are available at `/en` and `/zh` respectively.
+Open the local URL shown by Next.js, normally `http://localhost:3000/en`. Chinese and Russian versions are available at `/zh` and `/ru`.
 
-## Deployment to Vercel
+If the development cache reports a missing vendor chunk, stop the server with `Ctrl+C`, remove only the `.next` folder, then restart:
 
-1. Push this folder to a Git repository and import it in Vercel.
-2. Add the variables from `.env.example` in **Project Settings → Environment Variables**.
-3. Set `NEXT_PUBLIC_SITE_URL` to the final domain and deploy. Vercel detects Next.js automatically.
+```powershell
+Remove-Item -LiteralPath ".next" -Recurse -Force
+npm.cmd run dev
+```
 
-The contact endpoint works as a validated success flow by default. Add `RESEND_API_KEY` and `CONTACT_TO_EMAIL` to have it email enquiries through Resend's API. Google Analytics is loaded only when `NEXT_PUBLIC_GA_ID` is set.
+## Environment variables
 
-## Internationalization
+Copy `.env.example` to `.env.local` and update the values you need:
 
-Locales live in `lib/i18n.ts`; add Russian by inserting `ru` into `locales` and translating the copy object. The route and language switcher will then support `/ru` without changing the page structure.
+```env
+NEXT_PUBLIC_SITE_URL=https://www.goodgardenfood.com
+NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
 
-## SEO
+NEXT_PUBLIC_INSTAGRAM_URL=
+NEXT_PUBLIC_FACEBOOK_URL=
+NEXT_PUBLIC_WHATSAPP_URL=
 
-Every route emits page metadata, canonical URLs, Open Graph tags and alternates. `app/sitemap.ts` and `app/robots.ts` are generated automatically.
+RESEND_API_KEY=
+CONTACT_TO_EMAIL=
+```
+
+When a social URL is blank, the website displays the channel as “Coming soon”.
+
+## Content and brand assets
+
+- All English, Chinese and Russian website copy is in `lib/i18n.ts`.
+- The navigation logo is `public/assets/brand/good-garden-lockup.png`.
+- The standalone brand mark is `public/assets/brand/good-garden-mark.png`.
+- The geographic map uses local Natural Earth data through `world-atlas`; it does not require a map API key.
+
+## Deployment
+
+Import the GitHub repository into Vercel. Vercel detects Next.js automatically. Add the production environment variables in **Settings → Environment Variables**, deploy, then connect the purchased domain under **Settings → Domains**.

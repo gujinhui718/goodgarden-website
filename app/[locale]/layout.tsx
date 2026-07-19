@@ -12,10 +12,10 @@ export function generateStaticParams() { return locales.map((locale) => ({ local
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale: requestedLocale } = await params;
   const locale = isLocale(requestedLocale) ? requestedLocale : "en";
-  const prefix = locale === "en" ? "" : "zh-CN";
+  const openGraphLocale = locale === "zh" ? "zh_CN" : locale === "ru" ? "ru_RU" : "en_US";
   return {
-    alternates: { canonical: absoluteUrl(`/${locale}`), languages: { en: absoluteUrl("/en"), "zh-CN": absoluteUrl("/zh") } },
-    openGraph: { locale: prefix, url: absoluteUrl(`/${locale}`), siteName: siteConfig.name },
+    alternates: { canonical: absoluteUrl(`/${locale}`), languages: { en: absoluteUrl("/en"), "zh-CN": absoluteUrl("/zh"), ru: absoluteUrl("/ru") } },
+    openGraph: { locale: openGraphLocale, url: absoluteUrl(`/${locale}`), siteName: siteConfig.name },
   };
 }
 
@@ -23,5 +23,6 @@ export default async function LocaleLayout({ children, params }: Readonly<{ chil
   const { locale: requestedLocale } = await params;
   if (!isLocale(requestedLocale)) notFound();
   const locale = requestedLocale as Locale;
-  return <div className="min-h-screen overflow-x-clip"><SiteHeader locale={locale} /><main className="pt-[74px]">{children}</main><SiteFooter locale={locale} /></div>;
+  const lang = locale === "zh" ? "zh-CN" : locale;
+  return <div lang={lang} className="min-h-screen overflow-x-clip"><SiteHeader locale={locale} /><main className="pt-[82px]">{children}</main><SiteFooter locale={locale} /></div>;
 }

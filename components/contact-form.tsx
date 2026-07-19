@@ -23,7 +23,7 @@ export default function ContactForm({ copy }: { copy: FormCopy }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="rounded-[1.75rem] bg-white p-6 shadow-soft sm:p-8">
+    <form onSubmit={handleSubmit} className="rounded-[2rem] bg-white p-6 shadow-[0_28px_80px_rgba(0,0,0,.16)] sm:p-8">
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label={copy.name} name="name" required />
         <Field label={copy.company} name="company" />
@@ -33,7 +33,7 @@ export default function ContactForm({ copy }: { copy: FormCopy }) {
       <label className="field-label mt-5">{copy.message}<textarea name="message" rows={5} required className="field resize-none" /></label>
       <div className="mt-6 flex flex-wrap items-center gap-4">
         <button disabled={status === "sending"} className="button disabled:cursor-not-allowed disabled:opacity-60">{status === "sending" ? copy.sending : copy.send}</button>
-        {status === "success" && <p role="status" className="text-sm font-medium text-garden-700">{copy.success}</p>}
+        {status === "success" && <p role="status" className="text-sm font-medium text-[#2f3188]">{copy.success}</p>}
         {status === "error" && <p role="alert" className="text-sm font-medium text-red-700">{copy.error}</p>}
       </div>
     </form>
