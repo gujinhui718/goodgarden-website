@@ -14,9 +14,12 @@ const channels = [
 ] as const;
 
 export default function SocialLinks({ copy, compact = false }: { copy: SocialCopy; compact?: boolean }) {
+  const activeChannels = channels.filter(({ key }) => Boolean(siteConfig.socials[key]));
+  if (activeChannels.length === 0) return null;
+
   return (
     <div className={`grid gap-3 ${compact ? "sm:grid-cols-3" : ""}`}>
-      {channels.map(({ key, Icon }) => {
+      {activeChannels.map(({ key, Icon }) => {
         const label = copy[key];
         const url = siteConfig.socials[key];
         const className =
@@ -32,15 +35,7 @@ export default function SocialLinks({ copy, compact = false }: { copy: SocialCop
             </span>
           </>
         );
-        return url ? (
-          <a key={key} href={url} target="_blank" rel="noreferrer" className={className} aria-label={label}>
-            {content}
-          </a>
-        ) : (
-          <span key={key} className={`${className} cursor-default opacity-75`} aria-disabled="true">
-            {content}
-          </span>
-        );
+        return <a key={key} href={url} target="_blank" rel="noreferrer" className={className} aria-label={label}>{content}</a>;
       })}
     </div>
   );

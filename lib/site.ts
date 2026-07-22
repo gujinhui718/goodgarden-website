@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "GOOD GARDEN",
   description:
-    "International premium banana brand connecting selected origins with growing markets worldwide.",
+    "Wholesale Cavendish banana programmes from selected origins for importers, distributors and retail buyers across Central Asia.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.goodgardenfood.com",
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "",
   phone: process.env.NEXT_PUBLIC_CONTACT_PHONE || "",

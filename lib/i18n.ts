@@ -12,10 +12,10 @@ export function isLocale(value: string): value is Locale {
 }
 
 const images = {
-  ecuador: "/assets/origin/latin-america.png",
-  philippines: "/assets/origin/philippines.png",
-  mekong: "/assets/origin/mekong.png",
-  guangxi: "/assets/origin/guangxi.png",
+  ecuador: "/assets/origin/ecuador-field-v2.png",
+  philippines: "/assets/origin/philippines-field-v2.png",
+  mekong: "/assets/origin/mekong-origins-v2.png",
+  guangxi: "/assets/origin/guangxi-field-v2.png",
   crate: "/assets/brand/good-garden-crate.jpeg",
   packaging: "/assets/brand/good-garden-packaging.jpeg",
 };
@@ -191,8 +191,8 @@ export const copy = {
       success: "Thank you. Your message has been received.",
       error: "Something went wrong. Please try again.",
       people: [
-        { name: "Jason Gu", role: "Purchasing Manager", phone: "+86 177 0569 6905", email: "gujinhui718@gmail.com" },
-        { name: "Abliz Yunus", role: "Marketing Director", phone: "+86 139 1607 3054", email: "mayorlee31@gmail.com" },
+        { name: "Jason Gu", phone: "+86 177 0569 6905", email: "gujinhui718@gmail.com" },
+        { name: "Abliz Yunus", phone: "+86 139 1607 3054", email: "mayorlee31@gmail.com" },
       ],
       office: "Fergana city, Kirguli MFY Sanoat street, 213-V, Republic of Uzbekistan",
     },
@@ -365,8 +365,8 @@ export const copy = {
       success: "感谢您的联系，我们已收到信息。",
       error: "提交失败，请稍后再试。",
       people: [
-        { name: "Jason Gu", role: "采购经理", phone: "+86 177 0569 6905", email: "gujinhui718@gmail.com" },
-        { name: "Abliz Yunus", role: "市场总监", phone: "+86 139 1607 3054", email: "mayorlee31@gmail.com" },
+        { name: "Jason Gu", phone: "+86 177 0569 6905", email: "gujinhui718@gmail.com" },
+        { name: "Abliz Yunus", phone: "+86 139 1607 3054", email: "mayorlee31@gmail.com" },
       ],
       office: "乌兹别克斯坦费尔干纳市 Kirguli MFY Sanoat 街 213-V",
     },
@@ -540,8 +540,8 @@ export const copy = {
       success: "Спасибо. Ваше сообщение получено.",
       error: "Не удалось отправить сообщение. Попробуйте ещё раз.",
       people: [
-        { name: "Jason Gu", role: "Менеджер по закупкам", phone: "+86 177 0569 6905", email: "gujinhui718@gmail.com" },
-        { name: "Abliz Yunus", role: "Директор по маркетингу", phone: "+86 139 1607 3054", email: "mayorlee31@gmail.com" },
+        { name: "Jason Gu", phone: "+86 177 0569 6905", email: "gujinhui718@gmail.com" },
+        { name: "Abliz Yunus", phone: "+86 139 1607 3054", email: "mayorlee31@gmail.com" },
       ],
       office: "Fergana city, Kirguli MFY Sanoat street, 213-V, Republic of Uzbekistan",
     },

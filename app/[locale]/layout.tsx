@@ -13,9 +13,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale: requestedLocale } = await params;
   const locale = isLocale(requestedLocale) ? requestedLocale : "en";
   const openGraphLocale = locale === "zh" ? "zh_CN" : locale === "ru" ? "ru_RU" : "en_US";
+  const language = locale === "zh" ? "zh-CN" : locale;
   return {
-    alternates: { canonical: absoluteUrl(`/${locale}`), languages: { en: absoluteUrl("/en"), "zh-CN": absoluteUrl("/zh"), ru: absoluteUrl("/ru") } },
+    alternates: { canonical: absoluteUrl(`/${locale}`), languages: { en: absoluteUrl("/en"), "zh-CN": absoluteUrl("/zh"), ru: absoluteUrl("/ru"), "x-default": absoluteUrl("/en") } },
     openGraph: { locale: openGraphLocale, url: absoluteUrl(`/${locale}`), siteName: siteConfig.name },
+    other: { "content-language": language },
   };
 }
 
